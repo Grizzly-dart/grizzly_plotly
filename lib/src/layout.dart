@@ -9,7 +9,15 @@ class Layout {
 
   final List<Annotation> annotations;
 
-  Layout({this.width, this.height, this.title, this.annotations});
+  /// Determines whether or not a legend is drawn.
+  final bool showLegend;
+
+  Layout(
+      {this.width,
+      this.height,
+      this.title,
+      this.annotations,
+      this.showLegend: true});
 
   Map<String, dynamic> get toDict {
     final ret = <String, dynamic>{};
@@ -18,6 +26,7 @@ class Layout {
     if (title != null) ret['title'] = title;
     if (annotations != null)
       ret['annotations'] = annotations.map((a) => a.toDict).toList();
+    if (!showLegend) ret['showlegend'] = showLegend;
     return ret;
   }
 }
