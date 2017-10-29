@@ -1,5 +1,8 @@
 library grizzly.plotly;
 
+import 'package:meta/meta.dart';
+import 'package:grizzly_primitives/grizzly_primitives.dart';
+
 part 'layout.dart';
 
 part 'traces/area.dart';
@@ -13,9 +16,11 @@ part 'traces/line.dart';
 part 'traces/pie.dart';
 part 'traces/scatter.dart';
 
+part 'utils/annotation.dart';
 part 'utils/each_color.dart';
 part 'utils/each_size.dart';
 part 'utils/hover_label.dart';
+part 'utils/line_style.dart';
 part 'utils/marker.dart';
 part 'utils/text_font.dart';
 part 'utils/text_position.dart';

@@ -69,7 +69,7 @@ class Bar {
   final TextFont textFont;
 
   /// Sets the text font
-  final TextFont insidTextFont;
+  final TextFont insideTextFont;
 
   /// Sets the text font
   final TextFont outsideTextFont;
@@ -104,13 +104,13 @@ class Bar {
     this.marker,
     this.textPosition: TextPosition.middleCenter,
     this.textFont,
-    this.insidTextFont,
+    this.insideTextFont,
     this.outsideTextFont,
     this.constrainText: BarConstrainText.both,
     this.vertical: true,
-	  this.base,
-	  this.offset,
-	  this.width,
+    this.base,
+    this.offset,
+    this.width,
   });
 
   /// Converts to the format Plotly understands
@@ -136,14 +136,14 @@ class Bar {
     if (textPosition != null && textPosition != TextPosition.middleCenter)
       ret['textposition'] = textPosition.text;
     if (textFont != null) ret['textfont'] = textFont.toDict;
-    if (insidTextFont != null) ret['insidetextfont'] = insidTextFont.toDict;
+    if (insideTextFont != null) ret['insidetextfont'] = insideTextFont.toDict;
     if (outsideTextFont != null)
       ret['outsidetextfont'] = outsideTextFont.toDict;
     if (constrainText != null && constrainText != BarConstrainText.both)
       ret['constraintext'] = constrainText.text;
-    if(base != null) ret['base'] = base;
-    if(offset != null) ret['offset'] = offset;
-    if(width != null) ret['width'] = width;
+    if (base != null) ret['base'] = base;
+    if (offset != null) ret['offset'] = offset;
+    if (width != null) ret['width'] = width;
 
     return ret;
   }

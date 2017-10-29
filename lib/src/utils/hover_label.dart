@@ -4,8 +4,10 @@ class HoverLabel {
   /// Sets the background color of the hover labels for this trace
   final String bgColor;
 
+  /// Sets the border color of the hover label.
   final String borderColor;
 
+  /// Sets the hover label text font
   final TextFont font;
 
   /// Sets the length (in number of characters) of the trace name in the hover

@@ -21,7 +21,7 @@ void main() {
         visible: false,
       ),
     ],
-    layout: new Layout(500, 400, title: 'Scatter plot'),
+    layout: new Layout(width: 500, height: 400, title: 'Scatter plot'),
   );
 
   print(fig.tracesDict);

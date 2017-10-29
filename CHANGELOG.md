@@ -2,4 +2,8 @@
 
 ## 0.0.1
 
-- Initial version, created by Stagehand
+- `Scatter`
+- `Line`
+- `Bar`
+- `Histogram`
+- `Pie`
