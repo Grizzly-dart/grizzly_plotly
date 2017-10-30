@@ -1,8 +1,8 @@
 part of grizzly.plotly;
 
-class Bar {
+class Bar implements Trace {
   /// X-axis data
-  final Iterable<num> x;
+  final Iterable<dynamic> x;
 
   /// Y-axis data
   final Iterable<num> y;
@@ -118,6 +118,7 @@ class Bar {
     final ret = <String, dynamic>{
       'x': x.toList(),
       'y': y.toList(),
+      'type': 'bar',
       'visible': visible,
       'orientation': vertical ? 'v' : 'h',
     };
