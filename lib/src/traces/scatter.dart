@@ -65,7 +65,7 @@ class Scatter implements Trace {
 
   final HoverOn hoverOn;
 
-  final LineStyle line;
+  final CurveStyle line;
 
   final bool connectGaps;
 
@@ -139,7 +139,7 @@ class Scatter implements Trace {
       ret['fill'] = fillType.text;
     if (fillColor != null) ret['fillcolor'] = fillColor;
     if (marker != null) ret['marker'] = marker.toDict;
-    if (textPosition != null && textPosition != TextPosition.middleCenter)
+    if (textPosition != TextPosition.middleCenter)
       ret['textposition'] = textPosition.text;
     if (textFont != null) ret['textfont'] = textFont.toDict;
     return ret;
@@ -158,97 +158,6 @@ class HoverOn {
   static const HoverOn fills = const HoverOn(1, 'fills');
 
   static const HoverOn pointsNFills = const HoverOn(2, 'points+fills');
-}
-
-class LineStyle {
-  final String color;
-
-  final double width;
-
-  final LineShape shape;
-
-  final double smoothing;
-
-  /// Sets the dash style of lines.
-  ///
-  /// Default: solid
-  final LineStroke dash;
-
-  /// Dash line length
-  final double dashLength;
-
-  /// Simplifies lines by removing nearly-collinear points. When transitioning lines,
-  /// it may be desirable to disable this so that the number of points along the
-  /// resulting SVG path is unaffected.
-  ///
-  /// default: True
-  final bool simplify;
-
-  LineStyle(
-      {this.color,
-      this.width: 2.0,
-      this.shape: LineShape.linear,
-      this.smoothing: 1.0,
-      this.dash: LineStroke.solid,
-      this.dashLength,
-      this.simplify: true});
-
-  /// Converts to the format Plotly understands
-  Map<String, dynamic> get toDict {
-    final ret = <String, dynamic>{};
-    if (color is String) ret['color'] = color;
-    if (width is double && width != 2.0) ret['width'] = width;
-    if (shape is LineShape && shape != LineShape.linear)
-      ret['shape'] = shape.text;
-    if (smoothing is double && smoothing != 1.0) ret['smoothing'] = smoothing;
-    if (dash is LineStroke) {
-      if (dash != LineStroke.solid) ret['dash'] = dash.text;
-    } else {
-      if (dashLength is double) ret['dash'] = dashLength;
-    }
-    if (simplify is bool && !simplify) ret['simplify'] = 'False';
-    return ret;
-  }
-}
-
-class LineShape {
-  final int id;
-
-  final String text;
-
-  const LineShape(this.id, this.text);
-
-  static const LineShape linear = const LineShape(0, 'linear');
-
-  static const LineShape spline = const LineShape(1, 'spline');
-
-  static const LineShape hv = const LineShape(2, 'hv');
-
-  static const LineShape vh = const LineShape(3, 'vh');
-
-  static const LineShape hvh = const LineShape(4, 'hvh');
-
-  static const LineShape vhv = const LineShape(5, 'vhv');
-}
-
-class LineStroke {
-  final int id;
-
-  final String text;
-
-  const LineStroke(this.id, this.text);
-
-  static const LineStroke solid = const LineStroke(0, 'solid');
-
-  static const LineStroke dot = const LineStroke(1, 'dot');
-
-  static const LineStroke dash = const LineStroke(2, 'dash');
-
-  static const LineStroke longdash = const LineStroke(3, 'longdash');
-
-  static const LineStroke dashdot = const LineStroke(4, 'dashdot');
-
-  static const LineStroke longdashdot = const LineStroke(5, 'longdashdot');
 }
 
 class FillType {

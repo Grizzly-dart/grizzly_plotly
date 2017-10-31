@@ -17,7 +17,7 @@ class Line extends Scatter implements Trace {
       HoverLabel hoverLabel,
       HoverOn hoverOn,
       HoverInfo hoverInfo: HoverInfo.all,
-      LineStyle line,
+      CurveStyle line,
       bool connectGaps: false,
       bool clipOnAxis: true,
       FillType fillType: FillType.none,
