@@ -1,24 +1,15 @@
 import 'package:grizzly_plotly/grizzly_plotly.dart';
 import 'package:plotly/plotly.dart';
+import 'package:grizzly_stats/grizzly_stats.dart';
 
 void main() {
+  final rands = new List<double>.generate(10000, (_) => randn);
+
   final fig = new Figure(
     traces: [
-      new Scatter(
-        x: [1, 2, 3, 4],
-        y: [10, 15, 13, 17],
+      new Histogram(
+        x: rands,
         visible: true,
-      ),
-      new Line(
-        x: [2, 3, 4, 5],
-        y: [16, 5, 11, 9],
-        visible: true,
-        marker: new Marker(symbol: MarkerSymbol.triangleUp),
-      ),
-      new Scatter(
-        x: [1, 2, 3, 4],
-        y: [12, 9, 15, 12],
-        visible: false,
       ),
     ],
     layout: new Layout(width: 500, height: 400, title: 'Scatter plot'),
@@ -26,5 +17,5 @@ void main() {
 
   print(fig.tracesDict);
 
-  final plt = new Plot.id('output', fig.tracesDict, fig.layoutDict);
+  final plt = new Plot.id('output1', fig.tracesDict, fig.layoutDict);
 }
