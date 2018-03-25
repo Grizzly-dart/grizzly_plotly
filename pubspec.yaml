@@ -1,6 +1,6 @@
 name: grizzly_plotly
 description: Plotly-like interface to build good-looking plots
-version: 0.2.0-dev
+version: 0.2.1-dev
 homepage: https://github.com/grizzly-dart/grizzly_plotly
 author: Ravi Teja Gudapati <tejainece@gmail.com>
 
@@ -12,13 +12,9 @@ dependencies:
 
 dev_dependencies:
   browser: ^0.10.0
-  dart_to_js_script_rewriter: ^1.0.1
-  plotly: ^0.7.3
+  plotly: ^0.8.0-alpha.1
   grizzly_series: ^0.2.0
   grizzly_stats: ^0.2.0-dev
-
-transformers:
-- dart_to_js_script_rewriter
 
 web:
   compiler:
