@@ -116,12 +116,12 @@ class Bar implements Trace {
   /// Converts to the format Plotly understands
   Map<String, dynamic> get toDict {
     final ret = <String, dynamic>{
-      'x': x.toList(),
-      'y': y.toList(),
       'type': 'bar',
       'visible': visible,
       'orientation': vertical ? 'v' : 'h',
     };
+    if (x != null) ret['x'] = x.toList();
+    if (y != null) ret['y'] = y.toList();
 
     if (name is String) ret['name'] = name;
     if (!showLegend) ret['showlegend'] = showLegend;
